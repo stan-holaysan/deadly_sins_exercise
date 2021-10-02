@@ -1,26 +1,26 @@
 $(document).ready(function(){
 
-    $('form').on('submit', function(){
-        let username = $('#username');
-        let password = $('#password');
+    $('#registerBtn').click(function(){
+        let username = $('#username').val();
+        let password = $('#password').val();
+        let confPassword = $('#confPassword').val();
 
-        let info = {username: username.val(), password: password.val()}
-  
-        $.ajax({
-          type: 'POST',
-          url: '/register',
-          data: info,
-          success: function(data){
-            //do something with the data via front-end framework
-            if (data==true){
-              window.location.href = "/dashboard";
+        if (password == confPassword){
+            let info = {username: username, password: password}
+    
+            $.ajax({
+            type: 'POST',
+            url: '/register',
+            data: info,
+            success: function(data){
+                alert("Success!")
             }
-            else{
-              // location.reload();
-              window.location.href = "/dashboard";
-            }
-          }
-        });
+            });
+        }
+
+        else{
+            alert("Passwords do not match")
+        }
   
         return false;
     })

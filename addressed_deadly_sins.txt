@@ -1,0 +1,10 @@
+1. Never use magic/hidden inputs 
+	- no hidden input fields in the registration form in 'views/register.ejs'
+
+2. Code should be modularized
+	- code is modularized by using controllers (controllers/controller.js), models (models/user.js), and a separate file for connecting to the database (db_connection.js)
+
+3. Datatypes should be validated
+	- datatypes are validated through Sequelize DataTypes (models/user.js)
+
+
